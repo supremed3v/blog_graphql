@@ -183,8 +183,8 @@ export const getCategoryPost = async (slug) => {
 
 export const getFeaturedPosts = async () => {
   const query = gql`
-    query GetCategoryPost() {
-      posts(where: {featuredPost: true}) {
+    query GetFeaturedPosts {
+      posts(where: {featurePost: true}) {
         author {
           name
           photo {
@@ -203,6 +203,7 @@ export const getFeaturedPosts = async () => {
 
   const result = await request(graphqlAPI, query);
 
+  console.log(result, "result")
   return result.posts;
 };
 
@@ -247,7 +248,7 @@ export const getComments = async (slug) => {
 
 export const getRecentPosts = async () => {
   const query = gql`
-    query GetPostDetails() {
+    query GetPostDetails {
       posts(
         orderBy: createdAt_ASC
         last: 3
