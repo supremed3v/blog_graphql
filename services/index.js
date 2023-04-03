@@ -10,7 +10,6 @@ export const getPosts = async () => {
           cursor
           node {
             author {
-              bio
               name
               id
               photo {
@@ -41,7 +40,7 @@ export const getPosts = async () => {
 
 export const getCategories = async () => {
   const query = gql`
-    query GetGategories {
+    query GetCategories {
       categories {
         name
         slug
@@ -65,7 +64,6 @@ export const getPostDetails = async (slug) => {
         }
         author {
           name
-          bio
           photo {
             url
           }
@@ -96,7 +94,7 @@ export const getSimilarPosts = async (categories, slug) => {
           slug_not: $slug
           AND: { categories_some: { slug_in: $categories } }
         }
-        last: 3
+        last: 2
       ) {
         title
         featuredImage {
@@ -155,7 +153,6 @@ export const getCategoryPost = async (slug) => {
           cursor
           node {
             author {
-              bio
               name
               id
               photo {

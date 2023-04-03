@@ -4,6 +4,7 @@ import { FeaturedPosts } from "../sections";
 import { getPosts } from "../services";
 
 export default function Home({ posts }) {
+  console.log(posts)
   return (
     <div className="container mx-auto px-10 mb-8">
       <Head>
